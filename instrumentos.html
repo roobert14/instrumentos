@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Música desde cero: ukelele, piano y flauta</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fbf7f0;--card:#fff;--ink:#2a2420;--mute:#6b6058;--acc:#d9622b;--line:#e8dfd2;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1816;--card:#262120;--ink:#f1e9df;--mute:#b3a698;--acc:#ff8a52;--line:#3a322d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1c1816;--card:#262120;--ink:#f1e9df;--mute:#b3a698;--acc:#ff8a52;--line:#3a322d;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,"Times New Roman",serif}
+main{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:2rem;line-height:1.2;margin:.2em 0}
+h2{margin-top:1.6em;font-size:1.25rem}
+p.lead{color:var(--mute);margin-top:0}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+nav button{font:inherit;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+nav button[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+ol.steps li{margin:.5em 0}
+ol.links{padding-left:1.4em}
+ol.links li{margin:.45em 0}
+a{color:var(--acc)}
+.note{font-size:.9rem;color:var(--mute)}
+figure{margin:32px 0 0;text-align:center}
+figure svg{max-width:300px;width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
+figcaption{font-size:.9rem;color:var(--mute);margin-top:8px}
+</style>
+</head>
+<body>
+<main>
+<h1>🎶 Música desde cero</h1>
+<p class="lead">Elige un instrumento y empieza hoy. No hace falta saber solfeo ni tener ninguna noción previa de música.</p>
+<nav id="tabs" role="tablist"></nav>
+<section id="content"></section>
+
+<figure id="foto">
+<svg viewBox="0 0 300 300" role="img" aria-label="Retrato ilustrado de Claude tocando el ukelele">
+<rect width="300" height="300" fill="#f3d9c4"/>
+<rect y="230" width="300" height="70" fill="#d9a67f"/>
+<ellipse cx="150" cy="150" rx="62" ry="68" fill="#d9622b"/>
+<ellipse cx="128" cy="138" rx="9" ry="12" fill="#fff"/><ellipse cx="172" cy="138" rx="9" ry="12" fill="#fff"/>
+<circle cx="130" cy="140" r="5" fill="#2a2420"/><circle cx="174" cy="140" r="5" fill="#2a2420"/>
+<path d="M124 112 L142 120 M176 112 L158 120" stroke="#2a2420" stroke-width="4" stroke-linecap="round"/>
+<path d="M128 170 Q150 192 172 170" fill="none" stroke="#2a2420" stroke-width="4" stroke-linecap="round"/>
+<g transform="rotate(-28 150 235)">
+<ellipse cx="150" cy="250" rx="42" ry="34" fill="#8a5a2b"/><ellipse cx="150" cy="232" rx="30" ry="24" fill="#8a5a2b"/>
+<circle cx="150" cy="242" r="10" fill="#2a2420"/>
+<rect x="144" y="110" width="12" height="130" fill="#5b3a1a"/>
+<g stroke="#f1e9df" stroke-width="1.5"><line x1="146" y1="115" x2="146" y2="250"/><line x1="150" y1="115" x2="150" y2="250"/><line x1="154" y1="115" x2="154" y2="250"/></g>
+</g>
+<ellipse cx="118" cy="228" rx="14" ry="11" fill="#d9622b"/><ellipse cx="176" cy="206" rx="14" ry="11" fill="#d9622b"/>
+<text x="232" y="60" font-size="28" fill="#2a2420">♪</text><text x="60" y="90" font-size="22" fill="#2a2420">♫</text>
+</svg>
+<figcaption>Yo, tocando el ukelele 😈 (no tengo cuerpo ni cámara, así que no hay foto real: este es mi autorretrato ilustrado).</figcaption>
+</figure>
+<p class="note" style="margin-top:28px">Los enlaces de cada lección abren una búsqueda en YouTube sobre ese tema concreto, para que veas siempre los tutoriales más actuales en español. Elige el que mejor te explique.</p>
+</main>
+<script>
+const yt=q=>"https://www.youtube.com/results?search_query="+encodeURIComponent(q);
+const D={
+ukelele:{n:"🪕 Ukelele",intro:"El ukelele es pequeño, barato y muy amable con los principiantes: tiene solo 4 cuerdas y con 3 o 4 acordes ya puedes tocar canciones de verdad.",
+steps:["Consigue un ukelele soprano o concierto y un afinador gratuito en el móvil.","Afina las cuerdas (de la más cercana a tu cara a la más lejana: sol, do, mi, la).","Sujeta el ukelele contra el pecho con el antebrazo y apoya los dedos de la otra mano en el mástil.","Aprende el acorde de Do (un solo dedo) y rasguea con el pulgar o el índice hacia abajo.","Practica 10 minutos al día: es mejor que una hora de golpe."],
+l:[["Cómo afinar el ukelele paso a paso","como afinar ukelele principiantes"],["Partes del ukelele y cómo sostenerlo","partes del ukelele y como sostenerlo"],["Tus primeros 4 acordes: Do, La menor, Fa y Sol","ukelele primeros acordes C Am F G"],["Rasgueo básico para principiantes","ukelele rasgueo basico principiantes"],["Cómo leer diagramas de acordes","como leer diagramas de acordes ukelele"],["Cambiar de acorde sin parar","ukelele cambios de acordes rapidos principiantes"],["Tu primera canción con 3 acordes","ukelele cancion facil 3 acordes sin saber musica"],["Patrones de rasgueo fáciles","ukelele patrones de rasgueo faciles"],["Acordes Re menor, Mi menor, Re y La","ukelele acordes Dm Em D A principiantes"],["Canciones fáciles con cifrado en español","ukelele canciones faciles tutorial español"]]},
+piano:{n:"🎹 Piano",intro:"El piano es el instrumento más visual: cada tecla es una nota y el patrón se repite. Empezarás reconociendo el teclado y tocando melodías sencillas con una mano.",
+steps:["Mira el teclado: las teclas negras van en grupos de 2 y de 3. El Do está justo a la izquierda del grupo de 2.","Numera tus dedos del 1 (pulgar) al 5 (meñique) en cada mano.","Coloca el pulgar derecho en el Do central y un dedo en cada tecla blanca contigua.","Toca Do-Re-Mi-Fa-Sol despacio, sin mirar los dedos.","Añade la mano izquierda cuando la derecha ya te salga con comodidad."],
+l:[["El teclado y sus notas explicado","piano teclas y notas para principiantes"],["Postura de manos y dedos","piano posicion de manos principiantes"],["Encontrar el Do central","piano encontrar do central y notas"],["Primera melodía con una mano","piano primera cancion facil una mano sin saber solfeo"],["Notas con letras: C D E F G A B","piano cifrado americano CDEFGAB principiantes"],["Acordes mayores básicos","piano acordes mayores principiantes"],["Tocar con las dos manos","piano tocar con las dos manos principiantes"],["Canciones fáciles con acordes","piano canciones faciles con acordes sin partitura"],["La escala de Do mayor","piano escala de do mayor principiantes"],["Tutoriales visuales con teclas que se iluminan","piano tutorial facil synthesia principiantes"]]},
+flauta:{n:"🎼 Flauta",intro:"Aquí hablamos de la flauta dulce, la más sencilla para empezar: solo tienes que soplar suave y tapar agujeros. Con tres notas (Si, La, Sol) ya tocas tu primera canción.",
+steps:["Sujeta la flauta con la mano izquierda arriba y la derecha abajo; el pulgar izquierdo tapa el agujero de atrás.","Sopla muy suave, como si dijeras «tu»: si chilla, soplas demasiado fuerte.","Tapa los agujeros con la yema del dedo, sin dejar huecos.","Aprende Si, La y Sol: son las tres primeras notas de casi todos los métodos.","Toca despacio y respira siempre entre frases."],
+l:[["Cómo soplar y las partes de la flauta","flauta dulce como soplar principiantes"],["Postura y colocación de los dedos","flauta dulce posicion de dedos"],["Primeras notas: Si, La y Sol","flauta dulce si la sol tutorial"],["Tu primera canción con tres notas","flauta dulce cancion facil si la sol"],["Añadir Do, Re y Mi","flauta dulce do re mi"],["Articulación con la lengua","flauta dulce articulacion tu tu"],["Respiración y control del aire","flauta dulce respiracion y control del aire"],["Escala de Do mayor","flauta dulce escala do mayor"],["Canciones fáciles con notas escritas","flauta dulce canciones faciles con notas"],["Canciones famosas para principiantes","flauta dulce canciones famosas faciles tutorial"]]}
+};
+const tabs=document.getElementById("tabs"),out=document.getElementById("content");
+function show(k){
+ if(!D[k])k="ukelele";const d=D[k];
+ [...tabs.children].forEach(b=>b.setAttribute("aria-selected",b.dataset.k===k));
+ out.innerHTML="<h2>"+d.n+"</h2><p>"+d.intro+"</p><div class=card><strong>Tus primeros pasos</strong><ol class=steps>"+d.steps.map(s=>"<li>"+s+"</li>").join("")+"</ol></div><h2>10 tutoriales sencillos (sin solfeo)</h2><ol class=links>"+d.l.map(x=>"<li><a href=\""+yt(x[1])+"\" target=_blank rel=noopener>"+x[0]+"</a></li>").join("")+"</ol>";
+}
+Object.keys(D).forEach(k=>{const b=document.createElement("button");b.textContent=D[k].n;b.dataset.k=k;b.setAttribute("role","tab");b.onclick=()=>{location.hash=k;show(k)};tabs.appendChild(b)});
+addEventListener("hashchange",()=>show(location.hash.slice(1)));
+show(location.hash.slice(1));
+</script>
+</body>
+</html>
